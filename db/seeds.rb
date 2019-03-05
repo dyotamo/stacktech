@@ -1,28 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-categories = [
-    "Application and Data",
-    "Utilities",
-    "DevOps",
-    "Business Tools"
-].each do |category|
-    Category.create(name: category)
-end
-
-app_and_data = [
+languages = [
     "Python",
-    "nginx",
-    "MySQL",
-    "Amazon S3",
-    "Memcached",
-    "Rust",
+    "Ruby",
+    "Java",
+    "C",
+    "Rust"
 ].each do |tool|
-    Tool.create(name: tool, category: Category.find_by(name: "Application and Data"))
+    ProgrammingLanguage.create(name: tool)
 end
 
 utilities = [
@@ -33,10 +16,10 @@ utilities = [
     "HackerOne",
     "Bugcrowd"
 ].each do |tool|
-    Tool.create(name: tool, category: Category.find_by(name: "Utilities"))
+    Utility.create(name: tool)
 end
 
-dev_ops = [
+bussiness_tools = [
     "Sentry",
     "G Suite",
     "Zendesk",
@@ -45,5 +28,5 @@ dev_ops = [
     "OneLogin",
     "Taskdesk"
 ].each do |tool|
-    Tool.create(name: tool, category: Category.find_by(name: "DevOps"))
+    BusinessTool.create(name: tool)
 end

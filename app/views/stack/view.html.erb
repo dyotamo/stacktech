@@ -1,7 +1,4 @@
-<h1>
-  <%= gravatar_for @user %><%= @user.name %></h1>
-<ul>
-  <% @user.tools.each do |tool| %>
-    <li><%= tool.name %></li>
-  <% end %>
-</ul>
+<h1><%= gravatar_for @user %><%= @user.name %></h1>
+<blockquote>
+    <%= @user.about  %>
+</blockquote>

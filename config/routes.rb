@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   devise_for :users
   
   get '/search', to: 'search#index', as: "search"
-  get '/stack/:id', to: 'stack#view', as: "stack"
+  get '/stack/:slug', to: 'stack#view', as: "stack"
 end
