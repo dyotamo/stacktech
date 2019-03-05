@@ -1,0 +1,11 @@
+<%= render "shared/search", value: '' %>
+
+<hr/>
+
+<h3>All users</h3>
+
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to user.name, stack_path(id: user.slug) %></li>
+  <% end %>
+</ul>

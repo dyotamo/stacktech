@@ -1,0 +1,7 @@
+<%= render "shared/search", value: @text %>
+<p>Results for <b><%= @text %></b></p>
+<ul>
+  <% @results.each do |user| %>
+    <li><%= user.name %></li>
+  <% end %>
+</ul>
