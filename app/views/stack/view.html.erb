@@ -1,16 +1,17 @@
-<h2 class="media">
-  <div class="media-left">
-    <%= gravatar_for @user %>
+<div style="text-align: center;">
+  <div class="jumbotron">
+    <h2 class="media">
+      <%= gravatar_for @user %>
+      <%= @user.name %>
+    </h2>
+    <% if !@user.about.empty? %>
+      <hr/>
+      <p>
+        <%= @user.about  %>
+      </p>
+    <% end %>
   </div>
-  <div class="media-body" style="vertical-align: middle;">
-    <%= @user.name %>
-  </div>
-</h2>
-<% if !@user.about.empty? %>
-  <div class="well" style="border-radius: 0; text-align: center;">
-    <%= @user.about  %>
-  </div>
-<% end %>
+</div>
 <div class="row">
   <div class="col-md-3">
     <h4>Programming Languages <small>(<%= @user.programming_languages.count %>)</small></h4>

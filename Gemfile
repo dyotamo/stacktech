@@ -78,3 +78,7 @@ gem "bootswatch-rails", "~> 3.3.5"
 
 # Faker
 gem 'faker', '~> 1.9.3'
+
+# Pagination
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap', '~> 1.0.2'
