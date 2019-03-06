@@ -8,6 +8,7 @@ class User < ApplicationRecord
   before_save             :set_slug
 
   validates_presence_of   :name
+  validates_uniqueness_of :name
 
   has_and_belongs_to_many :programming_languages
   has_and_belongs_to_many :utilities
