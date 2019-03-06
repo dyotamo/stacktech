@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ProgrammingLanguageUserTest < ActiveSupport::TestCase
+class BusinessToolsUserTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,5 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+// Example using 'Cerulean' bootswatch
 
-body {
-    font-family: Ubuntu;
+//Import bootstrap-sprockets
+@import "bootstrap-sprockets";
+
+// Import cerulean variables
+@import "bootswatch/united/variables";
+
+// Then bootstrap itself
+@import "bootstrap";
+
+// And finally bootswatch style itself
+@import "bootswatch/united/bootswatch";
+
+.field_with_errors {
+    @extend .has-error;
+    .form-control {
+        color: $state-danger-text;
+    }
 }

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class BusinessToolUserTest < ActiveSupport::TestCase
+class DevopsUserTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

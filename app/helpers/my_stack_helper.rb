@@ -1,0 +1,2 @@
+module MyStackHelper
+end
