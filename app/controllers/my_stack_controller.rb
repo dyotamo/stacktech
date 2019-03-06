@@ -26,15 +26,15 @@ class MyStackController < ApplicationController
         ProgrammingLanguagesUser.create(programming_language_id: tool, user: current_user)
       end
 
-      params[:mystack][:language].each do |tool|
+      params[:mystack][:utilities].each do |tool|
         UsersUtility.create(utility_id: tool, user: current_user)
       end
 
-      params[:mystack][:language].each do |tool|
+      params[:mystack][:devops].each do |tool|
         DevopsUser.create(devop_id: tool, user: current_user)
       end
 
-      params[:mystack][:language].each do |tool|
+      params[:mystack][:business_tools].each do |tool|
         BusinessToolsUser.create(business_tool_id: tool, user: current_user)
       end
 

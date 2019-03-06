@@ -7,31 +7,41 @@
   </div>
 </h2>
 <% if !@user.about.empty? %>
-  <div class="well" style="border-radius: 0;">
+  <div class="well" style="border-radius: 0; text-align: center;">
     <%= @user.about  %>
   </div>
 <% end %>
-<h4>Programming Languages <small>(<%= @user.programming_languages.count %>)</small></h4>
-<ul>
-  <% @user.programming_languages.each do |tool| %>
-    <li><%= tool.name %></li>
-  <% end %>
-</ul>
-<h4>Utilities <small>(<%= @user.utilities.count %>)</small></h4>
-<ul>
-  <% @user.utilities.each do |tool| %>
-    <li><%= tool.name %></li>
-  <% end %>
-</ul>
-<h4>Devops <small>(<%= @user.devops.count %>)</small></h4>
-<ul>
-  <% @user.devops.each do |tool| %>
-    <li><%= tool.name %></li>
-  <% end %>
-</ul>
-<h4>Business Tools <small>(<%= @user.business_tools.count %>)</small></h4>
-<ul>
-  <% @user.business_tools.each do |tool| %>
-    <li><%= tool.name %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-3">
+    <h4>Programming Languages <small>(<%= @user.programming_languages.count %>)</small></h4>
+    <ul>
+      <% @user.programming_languages.each do |tool| %>
+        <li><%= tool.name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <h4>Utilities <small>(<%= @user.utilities.count %>)</small></h4>
+    <ul>
+      <% @user.utilities.each do |tool| %>
+        <li><%= tool.name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <h4>Devops <small>(<%= @user.devops.count %>)</small></h4>
+    <ul>
+      <% @user.devops.each do |tool| %>
+        <li><%= tool.name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <h4>Business Tools <small>(<%= @user.business_tools.count %>)</small></h4>
+    <ul>
+      <% @user.business_tools.each do |tool| %>
+        <li><%= tool.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
