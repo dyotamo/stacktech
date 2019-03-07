@@ -10,8 +10,8 @@ class MyStackController < ApplicationController
 
   def update
     ActiveRecord::Base.transaction do
-      languages = current_user.programming_languages
-      languages.destroy_all
+      programming_languages = current_user.programming_languages
+      programming_languages.destroy_all
 
       utilities = current_user.utilities
       utilities.destroy_all
@@ -22,7 +22,7 @@ class MyStackController < ApplicationController
       business_tools = current_user.business_tools
       business_tools.destroy_all
 
-      params[:mystack][:language].each do |tool|
+      params[:mystack][:programming_languages].each do |tool|
         ProgrammingLanguagesUser.create(programming_language_id: tool, user: current_user)
       end
 

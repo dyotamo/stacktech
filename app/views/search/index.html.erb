@@ -1,7 +1,16 @@
-<%= render "shared/search", value: @text %>
-<p>Results for <b><%= @text %></b></p>
-<ul>
-  <% @results.each do |user| %>
-    <li><%= user.name %></li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-6">
+    <%= render "shared/search", value: @text %>
+    <p>Results for <strong><%= @text %></strong> (<%= @results.count %>):</p>
+    <hr/>
+    <% @results.each do |user| %>
+      <div style="margin-bottom: 20px;">
+        <h4>
+          <%= link_to user.name, stack_path(slug: user.slug) %>
+        </h4>
+        <%= if !user.about.empty? then user.about else "(No description)" end %>
+      </div>
+    <% end %>
+    <%= will_paginate @results, renderer: BootstrapPagination::Rails %>
+  </div>
+</div>

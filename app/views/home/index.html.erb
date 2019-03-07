@@ -1,4 +1,11 @@
-<%= render "shared/search", value: '' %>
+<div class="jumbotron">
+  <h1 style="text-align: center; font-family: Monospace;">Your development stack shared here</h1>
+</div>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= render "shared/search", value: '' %>
+  </div>
+</div>
 <hr/>
 <ul>
   <% @users.each do |user| %>

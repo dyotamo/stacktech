@@ -1,0 +1,9 @@
+<h4>Companies using this <%= @tool.name %>:</h4>
+<ul>
+  <% @users.each do |user| %>
+    <li><%= link_to user.name, stack_path(slug: user.slug) %></li>
+  <% end %>
+</ul>
+<div style="text-align: center;">
+  <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+</div>

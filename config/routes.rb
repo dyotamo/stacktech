@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   put        '/mystack',      to: 'my_stack#update'
 
   get        '/about',        to: 'pages#about',    as: "about"
+
+  get        '/tools/:id',    to: 'tool#view',       as: "tool"
 end
