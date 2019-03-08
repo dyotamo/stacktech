@@ -17,4 +17,11 @@ Rails.application.routes.draw do
   get        '/mystack/languages/:id',  to: 'programming_languages#view',    as: "view_language"
   post        '/mystack/languages/:id', to: 'programming_languages#update',  as: "update_language"
   delete     '/mystack/languages/:id',  to: 'programming_languages#destroy', as: "delete_language"
+
+  get        '/mystack/utilities/add',  to: 'utilities#new',                 as: "new_utility"
+  post       '/mystack/utilities/add',  to: 'utilities#create',              as: "add_utility"
+  
+  get        '/mystack/utilities/:id',  to: 'utilities#view',                as: "view_utility"
+  post       '/mystack/utilities/:id',  to: 'utilities#update',              as: "update_utility"
+  delete     '/mystack/utilities/:id',  to: 'utilities#destroy',             as: "delete_utility"
 end

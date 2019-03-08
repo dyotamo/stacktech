@@ -12,6 +12,15 @@
 
 ActiveRecord::Schema.define(version: 2019_03_08_132040) do
 
+  create_table "business_tool_users", force: :cascade do |t|
+    t.integer "business_tool_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["business_tool_id"], name: "index_business_tool_users_on_business_tool_id"
+    t.index ["user_id"], name: "index_business_tool_users_on_user_id"
+  end
+
   create_table "business_tools", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -26,6 +35,15 @@ ActiveRecord::Schema.define(version: 2019_03_08_132040) do
     t.text "details"
     t.index ["business_tool_id"], name: "index_business_tools_users_on_business_tool_id"
     t.index ["user_id"], name: "index_business_tools_users_on_user_id"
+  end
+
+  create_table "devop_users", force: :cascade do |t|
+    t.integer "devop_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["devop_id"], name: "index_devop_users_on_devop_id"
+    t.index ["user_id"], name: "index_devop_users_on_user_id"
   end
 
   create_table "devops", force: :cascade do |t|
@@ -44,6 +62,15 @@ ActiveRecord::Schema.define(version: 2019_03_08_132040) do
     t.index ["user_id"], name: "index_devops_users_on_user_id"
   end
 
+  create_table "programming_language_users", force: :cascade do |t|
+    t.integer "programming_language_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["programming_language_id"], name: "index_programming_language_users_on_programming_language_id"
+    t.index ["user_id"], name: "index_programming_language_users_on_user_id"
+  end
+
   create_table "programming_languages", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -59,6 +86,15 @@ ActiveRecord::Schema.define(version: 2019_03_08_132040) do
     t.index ["programming_language_id"], name: "index_programming_languages_users_on_programming_language_id"
     t.index ["user_id", "programming_language_id"], name: "index_programming_languages_user_unique_key", unique: true
     t.index ["user_id"], name: "index_programming_languages_users_on_user_id"
+  end
+
+  create_table "user_utilities", force: :cascade do |t|
+    t.integer "utility_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_utilities_on_user_id"
+    t.index ["utility_id"], name: "index_user_utilities_on_utility_id"
   end
 
   create_table "users", force: :cascade do |t|

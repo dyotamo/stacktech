@@ -1,0 +1,12 @@
+<div class="jumbotron" style="text-align: center; border-radius: 0;">
+  <h1>
+    <%= @utility.utility.name %>
+  </h1>
+  <hr/>
+  <% if !@utility.details.empty? %>
+    <%= @utility.details %>
+  <% else %>
+    (No details)
+  <% end %>
+</div>
+<%= render "utilities/form", users_utility: @utility, url: update_utility_path %>

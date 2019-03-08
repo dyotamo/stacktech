@@ -14,7 +14,9 @@
     <h4>Utilities <small>(<%= current_user.utilities.count %>)</small></h4>
     <ul>
       <% current_user.utilities.each do |tool| %>
-        <li><%= tool.name %></li>
+        <li>
+          <%= link_to tool.name, view_utility_path(id: tool) %>
+        </li>
       <% end %>
     </ul>
   </div>
@@ -41,6 +43,7 @@
     <%= link_to "Add Language", new_language_path, class: "btn btn-primary btn-xs" %>
   </div>
   <div class="col-md-3">
+    <%= link_to "Add Utility", new_utility_path, class: "btn btn-primary btn-xs" %>
   </div>
   <div class="col-md-3">
   </div>
