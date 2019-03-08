@@ -1,14 +1,24 @@
 <div class="row">
   <div class="col-md-6">
     <%= render "shared/search", value: @text %>
-    <p>Results for <strong><%= @text %></strong> (<%= @results.count %>):</p>
-    <hr/>
+    <% if @results.empty? %>
+      <p>No results for <strong><%= @text %></strong></p>
+    <% else %>
+      <p>Results for <strong><%= @text %></strong> (<%= @results.count %>):</p>
+      <hr/>
+    <% end %>
     <% @results.each do |user| %>
       <div style="margin-bottom: 20px;">
         <h4>
           <%= link_to user.name, stack_path(slug: user.slug) %>
         </h4>
-        <%= if !user.about.empty? then user.about else "(No description)" end %>
+        <em>
+          <% if !user.about.empty? %>
+            <%= user.about %>
+          <% else %>
+            (No description) 
+          <% end %>
+        </em>
       </div>
     <% end %>
     <%= will_paginate @results, renderer: BootstrapPagination::Rails %>
