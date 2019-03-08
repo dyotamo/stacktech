@@ -1,60 +1,49 @@
 <h2>My Current Stack</h1>
 <div class="row">
   <div class="col-md-3">
-    <h4>Programming Languages <small>(<%= @programming_languages.count %>)</small></h4>
+    <h4>Programming Languages <small>(<%= current_user.programming_languages.count %>)</small></h4>
     <ul>
-      <% @programming_languages.each do |tool| %>
+      <% current_user.programming_languages.each do |tool| %>
+        <li>
+          <%= link_to tool.name, view_language_path(id: tool) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="col-md-3">
+    <h4>Utilities <small>(<%= current_user.utilities.count %>)</small></h4>
+    <ul>
+      <% current_user.utilities.each do |tool| %>
         <li><%= tool.name %></li>
       <% end %>
     </ul>
   </div>
   <div class="col-md-3">
-    <h4>Utilities <small>(<%= @utilities.count %>)</small></h4>
+    <h4>Devops <small>(<%= current_user.devops.count %>)</small></h4>
     <ul>
-      <% @utilities.each do |tool| %>
+      <% current_user.devops.each do |tool| %>
         <li><%= tool.name %></li>
       <% end %>
     </ul>
   </div>
   <div class="col-md-3">
-    <h4>Devops <small>(<%= @devops.count %>)</small></h4>
+    <h4>Business Tools <small>(<%= current_user.business_tools.count %>)</small></h4>
     <ul>
-      <% @devops.each do |tool| %>
-        <li><%= tool.name %></li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="col-md-3">
-    <h4>Business Tools <small>(<%= @business_tools.count %>)</small></h4>
-    <ul>
-      <% @business_tools.each do |tool| %>
+      <% current_user.business_tools.each do |tool| %>
         <li><%= tool.name %></li>
       <% end %>
     </ul>
   </div>
 </div>
 <hr/>
-<h2>Update Stack</h1>
-<%= form_for(:mystack, url: mystack_path, html: { method: :put }) do |f| %>
-  <div class="row form-group">
-    <div class="col-md-3">
-      <%= f.label :programming_languages %>
-      <%= f.select :programming_languages, options_for_select(ProgrammingLanguage.all.map {|t| [t.name, t.id] }, @programming_languages.pluck(:id)), {include_blank: false}, {multiple: true, class: "form-control", size: 10} %>
-    </div>
-    <div class="col-md-3">
-      <%= f.label :utilities %>
-      <%= f.select :utilities, options_for_select(Utility.all.map {|t| [t.name, t.id] }, @utilities.pluck(:id)), {include_blank: false}, {multiple: true, class: "form-control", size: 10} %>
-    </div>
-    <div class="col-md-3">
-      <%= f.label :devops %>
-      <%= f.select :devops, options_for_select(Devop.all.map {|t| [t.name, t.id] }, @devops.pluck(:id)), {include_blank: false}, {multiple: true, class: "form-control", size: 10} %>
-    </div>
-    <div class="col-md-3">
-      <%= f.label :business_tools %>
-      <%= f.select :business_tools, options_for_select(BusinessTool.all.map {|t| [t.name, t.id] }, @business_tools.pluck(:id)), {include_blank: false}, {multiple: true, class: "form-control", size: 10} %>
-    </div>
+<div class="row">
+  <div class="col-md-3">
+    <%= link_to "Add Language", new_language_path, class: "btn btn-primary btn-xs" %>
   </div>
-  <div class="form-group">
-    <%= f.submit "Update Stack", class: "btn btn-primary" %>
+  <div class="col-md-3">
   </div>
-<% end %>
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-3">
+  </div>
+</div>

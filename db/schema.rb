@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_082407) do
+ActiveRecord::Schema.define(version: 2019_03_08_132040) do
 
   create_table "business_tools", force: :cascade do |t|
     t.string "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_03_06_082407) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "details"
     t.index ["business_tool_id"], name: "index_business_tools_users_on_business_tool_id"
     t.index ["user_id"], name: "index_business_tools_users_on_user_id"
   end
@@ -38,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_03_06_082407) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "details"
     t.index ["devop_id"], name: "index_devops_users_on_devop_id"
     t.index ["user_id"], name: "index_devops_users_on_user_id"
   end
@@ -53,7 +55,9 @@ ActiveRecord::Schema.define(version: 2019_03_06_082407) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "details"
     t.index ["programming_language_id"], name: "index_programming_languages_users_on_programming_language_id"
+    t.index ["user_id", "programming_language_id"], name: "index_programming_languages_user_unique_key", unique: true
     t.index ["user_id"], name: "index_programming_languages_users_on_user_id"
   end
 
@@ -77,6 +81,7 @@ ActiveRecord::Schema.define(version: 2019_03_06_082407) do
     t.integer "utility_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "details"
     t.index ["user_id"], name: "index_users_utilities_on_user_id"
     t.index ["utility_id"], name: "index_users_utilities_on_utility_id"
   end

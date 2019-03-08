@@ -1,0 +1,12 @@
+<div class="jumbotron" style="text-align: center; border-radius: 0;">
+  <h1>
+    <%= @language.programming_language.name %>
+  </h1>
+  <hr/>
+  <% if !@language.details.empty? %>
+    <%= @language.details %>
+  <% else %>
+    (No details)
+  <% end %>
+</div>
+<%= render "programming_languages/form", programming_languages_user: @language, url: update_language_path %>

@@ -1,5 +1,5 @@
 <div style="text-align: center;">
-  <div class="jumbotron">
+  <div class="well">
     <h2 class="media">
       <%= gravatar_for @user %>
       <%= @user.name %>
@@ -16,8 +16,19 @@
   <div class="col-md-3">
     <h4>Programming Languages <small>(<%= @user.programming_languages.count %>)</small></h4>
     <ul>
-      <% @user.programming_languages.each do |tool| %>
-        <li><%= link_to tool.name, tool_path(id: tool.id) %></li>
+      <% @user.programming_languages_users.each do |tool| %>
+        <li style="margin-bottom: 20px;">
+          <div>
+            <%= link_to tool.programming_language.name, tool_path(id: tool.programming_language.id) %>
+          </div>
+          <em>
+            <% if !tool.details.empty? %>
+              <%= tool.details %>
+            <% else %>
+              (No details)
+            <% end %>
+          </em>
+        </li>
       <% end %>
     </ul>
   </div>
